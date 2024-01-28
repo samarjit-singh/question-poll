@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import confetti from "canvas-confetti";
 
 interface PollProps {
   question: string;
@@ -28,11 +29,28 @@ const Poll: React.FC<PollProps> = ({ question, options }) => {
     }
   }, [question, options]);
 
+  const triggerConfetti = () => {
+    confetti({
+      angle: 90,
+      spread: 360,
+      startVelocity: 30,
+      elementCount: 100,
+      dragFriction: 0.12,
+      duration: 1500,
+      stagger: 3,
+      width: "10px",
+      height: "10px",
+      colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
+    });
+  };
+
   const handleVote = (option: string) => {
     const newResults = { ...results, [option]: (results[option] || 0) + 1 };
     setResults(newResults);
     localStorage.setItem(question, JSON.stringify(newResults));
     setSelectedOption(option);
+
+    triggerConfetti();
   };
 
   const handleReset = () => {
@@ -64,7 +82,7 @@ const Poll: React.FC<PollProps> = ({ question, options }) => {
       <div className="mt-10">
         {Object.entries(results).map(([option, count]) => (
           <ul key={option}>
-            <li className="bg-green-300 mt-4 cursor-pointer">{`${option}: ${count}`}</li>
+            <li className="bg-green-300 mt-4">{`${option}: ${count}`}</li>
           </ul>
         ))}
       </div>

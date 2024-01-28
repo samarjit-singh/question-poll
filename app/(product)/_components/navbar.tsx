@@ -18,10 +18,10 @@ const Navbar = () => {
               Home
             </Link>
             <Link
-              href="/pool"
+              href="/poll"
               className="hover:bg-[#6962AD] text-center text-xl text-white font-bold rounded-full w-28 border-b-4 border-b-[#3D3B40] border-r-4 border-r-[#3D3B40] border-t-2 border-t-[#3D3B40] border-l-2 border-l-[#3D3B40] cursor-pointer"
             >
-              Pool
+              Poll
             </Link>
           </div>
         </div>

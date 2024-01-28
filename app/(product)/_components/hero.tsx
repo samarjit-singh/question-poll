@@ -19,16 +19,16 @@ const Hero = () => {
           </span>
 
           <p className="text-2xl text-center lg:text-start lg:text-6xl font-bold text-[#22092C]">
-            of Virtual Pool
+            of Virtual Poll
           </p>
 
           <p className="lg:w-[35rem] mt-10 font-bold lg:text-xl text-center lg:text-start">
-            CueSphere a developing pool application, offers a realistic,
-            customizable digital pool experience, catering to enthusiasts and
+            CueSphere a developing poll application, offers a realistic,
+            customizable digital poll experience, catering to enthusiasts and
             casual players alike.
           </p>
           <div className="flex items-center justify-center lg:justify-start">
-            <Link href="/pool">
+            <Link href="/poll">
               <button className="mt-10 bg-[#6962AD] lg:text-xl text-white font-bold rounded-full w-36 lg:w-44 h-10 lg:h-14 border-b-4 border-b-[#3D3B40] border-r-4 border-r-[#3D3B40] border-t-2 border-t-[#3D3B40] border-l-2 border-l-[#3D3B40]">
                 JOIN
               </button>

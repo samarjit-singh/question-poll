@@ -65,28 +65,40 @@ const Poll: React.FC<PollProps> = ({ question, options }) => {
   };
 
   return (
-    <div className="">
-      <h2>{question}</h2>
-      <div className="flex flex-col">
+    <div className="mt-10 flex flex-col items-center justify-center font-mono p-6">
+      <h2 className="font-bold text-xl lg:text-3xl">{question}</h2>
+      <div className="flex flex-col w-full">
+        <p className="text-gray-400/50 ">Options:</p>
         {options.map((option) => (
           <button
             key={option}
             onClick={() => handleVote(option)}
             disabled={selectedOption !== null}
-            className="bg-orange-300 mt-4"
+            className="mt-4 flex gap-2 items-start justify-start font-semibold text-lg lg:text-2xl cursor-pointer"
           >
-            {option}
+            <p>👉</p>
+            <p>{option}</p>
           </button>
         ))}
+        <p className="text-gray-400/50 mt-10">Result:</p>
       </div>
-      <div className="mt-10">
+
+      <div className="w-full">
         {Object.entries(results).map(([option, count]) => (
           <ul key={option}>
-            <li className="bg-green-300 mt-4">{`${option}: ${count}`}</li>
+            <li className="mt-4 flex justify-between">
+              <p>{`${option}:`}</p>
+              <p>{`${count}`}</p>
+            </li>
           </ul>
         ))}
       </div>
-      <button onClick={handleReset}>Reset Poll</button>
+      <button
+        onClick={handleReset}
+        className="bg-[#F6D776] lg:text-xl mt-4 text-[#0A1D56] font-bold rounded-full w-36 lg:w-44 h-10 lg:h-14 border-b-4 border-b-[#3D3B40] border-r-4 border-r-[#3D3B40] border-t-2 border-t-[#3D3B40] border-l-2 border-l-[#3D3B40]"
+      >
+        Reset Poll
+      </button>
     </div>
   );
 };

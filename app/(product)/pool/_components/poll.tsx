@@ -11,7 +11,7 @@ interface Results {
   [key: string]: number;
 }
 
-const Pool: React.FC<PollProps> = ({ question, options }) => {
+const Poll: React.FC<PollProps> = ({ question, options }) => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [results, setResults] = useState<Results>({});
 
@@ -73,4 +73,4 @@ const Pool: React.FC<PollProps> = ({ question, options }) => {
   );
 };
 
-export default Pool;
+export default Poll;

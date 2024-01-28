@@ -10,16 +10,16 @@ const Navbar = () => {
           <p className="font-bold text-2xl text-white">🎱 CueSphere</p>
           <div className="hidden sm:flex gap-x-5">
             <Link
-              href="#hero"
+              href="/"
               className="hover:bg-[#6962AD] text-center text-xl text-white font-bold rounded-full w-20 border-b-4 border-b-[#3D3B40] border-r-4 border-r-[#3D3B40] border-t-2 border-t-[#3D3B40] border-l-2 border-l-[#3D3B40] cursor-pointer"
             >
               Home
             </Link>
             <Link
-              href="#aboutus"
+              href="/pool"
               className="hover:bg-[#6962AD] text-center text-xl text-white font-bold rounded-full w-28 border-b-4 border-b-[#3D3B40] border-r-4 border-r-[#3D3B40] border-t-2 border-t-[#3D3B40] border-l-2 border-l-[#3D3B40] cursor-pointer"
             >
-              About us
+              Pool
             </Link>
           </div>
         </div>

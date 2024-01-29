@@ -4,7 +4,7 @@ import Hero from "./_components/hero";
 
 const ProductPage = () => {
   return (
-    <div>
+    <div data-testid="hero-component">
       <Hero />
     </div>
   );

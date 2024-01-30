@@ -88,7 +88,7 @@ const Poll: React.FC<PollProps> = ({ question, options }) => {
           <ul key={option}>
             <li className="mt-4 flex justify-between">
               <p>{`${option}:`}</p>
-              <p>{`${count}`}</p>
+              <p data-testid={`count-${option}`}>{`${count}`}</p>
             </li>
           </ul>
         ))}

@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Poll from "@/app/(product)/poll/_components/poll";
+import { waitFor } from "@testing-library/react";
 
 describe("Poll Component", () => {
   test("renders Poll component with question and options", () => {
@@ -29,7 +30,7 @@ describe("Poll Component", () => {
     expect(count).toHaveTextContent("1");
   });
 
-  it("reset poll sets vote counts to zero", async () => {
+  it("resets vote counts to zero on reset", async () => {
     const question = "Favorite Color?";
     const options = ["Red", "Blue", "Green"];
 
@@ -38,7 +39,18 @@ describe("Poll Component", () => {
     const optionButton = screen.getByText("Red");
     fireEvent.click(optionButton);
 
+    const optionResult = await screen.findByText("Red:");
+    const count = optionResult.nextSibling;
+    expect(count).toHaveTextContent("1");
+
     const resetButton = screen.getByText("Reset Poll");
     fireEvent.click(resetButton);
+
+    await waitFor(() => {
+      options.forEach(async (option) => {
+        const countElement = screen.getByTestId(`count-${option}`);
+        expect(countElement).toHaveTextContent("0");
+      });
+    });
   });
 });

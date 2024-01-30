@@ -16,20 +16,6 @@ describe("Poll Component", () => {
     });
   });
 
-  it("allows polling and updates results", async () => {
-    const question = "Favorite Color?";
-    const options = ["Red", "Blue", "Green"];
-
-    render(<Poll question={question} options={options} />);
-
-    const optionButton = screen.getByText("Red");
-    fireEvent.click(optionButton);
-
-    const optionResult = await screen.findByText("Red:");
-    const count = optionResult.nextSibling;
-    expect(count).toHaveTextContent("1");
-  });
-
   it("resets vote counts to zero on reset", async () => {
     const question = "Favorite Color?";
     const options = ["Red", "Blue", "Green"];
@@ -52,5 +38,19 @@ describe("Poll Component", () => {
         expect(countElement).toHaveTextContent("0");
       });
     });
+  });
+
+  it("allows polling and updates results", async () => {
+    const question = "Favorite Color?";
+    const options = ["Red", "Blue", "Green"];
+
+    render(<Poll question={question} options={options} />);
+
+    const optionButton = screen.getByText("Red");
+    fireEvent.click(optionButton);
+
+    const optionResult = await screen.findByText("Red:");
+    const count = optionResult.nextSibling;
+    expect(count).toHaveTextContent("1");
   });
 });

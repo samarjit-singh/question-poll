@@ -8,7 +8,7 @@
 
 ## Installation
 
-### 💾 After clonning the application run the following command
+### 💾 After cloning the application run the following command
 
 ```terminal
 $ npm install
